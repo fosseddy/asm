@@ -25,7 +25,7 @@ _start:
             mov eax, dword [dArr+edi*4]     ; dArr[j]
             mov ebx, dword [dArr+(edi*4)+4] ; dArr[j + 1]
 
-            cmp eax, ebx     ; if dArr[j] < dArr[j+1]
+            cmp eax, ebx     ; if dArr[j] <= dArr[j+1]
             jle .do_not_swap ; skip swap
 
             mov ecx, eax ; tmp = dArr[j]

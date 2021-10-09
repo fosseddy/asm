@@ -8,9 +8,9 @@ section .data
 section .text
     global _start
 
+; for (int i = 0; i <= N; ++i) sum += i
 _start:
     mov ecx, dword [dRange]
-
     .range_sum:
         add dword [dSum], ecx
         loop .range_sum

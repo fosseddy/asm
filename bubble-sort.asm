@@ -9,6 +9,7 @@ section .text
     global _start
 
 _start:
+    sub dword [dLen], 1
     mov esi, 0 ; i = 0
     .first_loop:
         cmp dword [dLen], esi ; if i == dLen
@@ -21,8 +22,8 @@ _start:
             cmp eax, edi        ; if j == dLen - i
             je .second_loop_end ; break second loop
 
-            mov eax, dword [dArr+rdi*4]     ; dArr[j]
-            mov ebx, dword [dArr+(rdi*4)+4] ; dArr[j + 1]
+            mov eax, dword [dArr+edi*4]     ; dArr[j]
+            mov ebx, dword [dArr+(edi*4)+4] ; dArr[j + 1]
 
             cmp eax, ebx     ; if dArr[j] < dArr[j+1]
             jle .do_not_swap ; skip swap
@@ -32,8 +33,8 @@ _start:
             mov ebx, ecx ; ebx = tmp
 
             ; swap dArr values
-            mov dword [dArr+rdi*4], eax
-            mov dword [dArr+(rdi*4)+4], ebx
+            mov dword [dArr+edi*4], eax
+            mov dword [dArr+(edi*4)+4], ebx
 
             .do_not_swap:
 

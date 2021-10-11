@@ -2,12 +2,11 @@
 %define EXIT_SUCCESS 0
 
 section .data
-    dArr dd 5, 2, 1, 3, 4
-    dLen dd 5
+dArr dd 5, 2, 1, 3, 4
+dLen dd 5
 
 section .text
-    global _start
-
+global _start
 _start:
     sub dword [dLen], 1
     mov esi, 0 ; i = 0

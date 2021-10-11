@@ -2,12 +2,11 @@
 %define EXIT_SUCCESS 0
 
 section .data
-    qArr dq 1, 2, 3, 4, 5
-    qLen dq 5
+qArr dq 1, 2, 3, 4, 5
+qLen dq 5
 
 section .text
-    global _start
-
+global _start
 _start:
     mov rcx, qword [qLen]
     mov r12, 0

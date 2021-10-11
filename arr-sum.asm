@@ -2,14 +2,12 @@
 %define EXIT_SUCCESS 0
 
 section .data
-    dArr dd 13, 100, 25, 11, 6, 33, 9, 5, 1, 0, 0, 222
-    dArr_len dd 12
-    dSum dd 0
+dArr dd 13, 100, 25, 11, 6, 33, 9, 5, 1, 0, 0, 222
+dArr_len dd 12
+dSum dd 0
 
 section .text
-    global _start
-
-; for (int i = 0; i < ARR_LEN; ++i) sum += arr[i]
+global _start
 _start:
     mov esi, 0
     .arr_loop:

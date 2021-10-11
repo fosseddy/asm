@@ -1,14 +1,12 @@
 %define SYS_EXIT 60
-%define SUCCESS 0
+%define EXIT_SUCCESS 0
 
 section .data
-    dRange dd 51
-    dSum dd 0
+dRange dd 51
+dSum dd 0
 
 section .text
-    global _start
-
-; for (int i = 0; i <= N; ++i) sum += i
+global _start
 _start:
     mov ecx, dword [dRange]
     .range_sum:
@@ -16,5 +14,5 @@ _start:
         loop .range_sum
 
     mov rax, SYS_EXIT
-    mov rdi, SUCCESS
+    mov rdi, EXIT_SUCCESS
     syscall

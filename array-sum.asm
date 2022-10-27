@@ -1,12 +1,13 @@
 section .data
   SYS_EXIT equ 60
   EXIT_SUCCESS equ 0
-  N equ 10
+  LEN equ 5
 
-  arr dd 50, 10, 15, 43, 11, 4, 7, 25, 114, 8
+  arr dd 3, 2, 5, 4, 1
   sum dd 0
   max dd 0
   min dd 0
+  average dd 0
 
 section .text
 global _start
@@ -30,9 +31,13 @@ skip_new_min:
   add [sum], eax
   inc rbx
 loop_test:
-  cmp rbx, N
+  cmp rbx, LEN
   jl loop
 
+  mov eax, [sum]
+  mov ebx, LEN
+  idiv ebx
+  mov [average], eax
 exit:
   mov rax, SYS_EXIT
   mov rdi, EXIT_SUCCESS

@@ -35,6 +35,7 @@ loop_test:
   jl loop
 
   mov eax, [sum]
+  cdq
   mov ebx, LEN
   idiv ebx
   mov [average], eax

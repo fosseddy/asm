@@ -15,10 +15,10 @@ _start:
   mov [max], eax
   mov [min], eax
 
-  mov ebx, 0
+  mov rbx, 0
   jmp loop_test
 loop:
-  mov eax, [arr+ebx*4]
+  mov eax, [arr+rbx*4]
   cmp [max], eax
   jge skip_new_max
   mov [max], eax
@@ -28,9 +28,9 @@ skip_new_max:
   mov [min], eax
 skip_new_min:
   add [sum], eax
-  inc ebx
+  inc rbx
 loop_test:
-  cmp ebx, N
+  cmp rbx, N
   jl loop
 
 exit:

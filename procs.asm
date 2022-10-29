@@ -82,8 +82,7 @@ stats2:
     mov [rdx], eax
 
     ;max
-    mov r10, rsi
-    mov eax, [rdi+r10*4-4]
+    mov eax, [rdi+rsi*4-4]
     mov [r9], eax
 
     ;medians

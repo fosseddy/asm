@@ -101,11 +101,11 @@ stats2:
     ;med1
     mov r10d, [rdi+rax*4-4]
     mov [rcx], r10d
+    jmp .medians_done
 
 .odd_len:
     ;med1
     mov [rcx], r10d
-    jmp .medians_done
 
 .medians_done:
     mov r10, 0

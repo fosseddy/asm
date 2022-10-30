@@ -1,11 +1,17 @@
+section .data
+    NULL equ 0
+
 section .text
     global strlen
+
 ; qword strlen(byte *s)
 strlen:
     mov rax, 0
+    jmp .loop_test
 .loop:
     inc rax
-    cmp byte [rdi+rax], 0
+.loop_test:
+    cmp byte [rdi+rax], NULL
     jne .loop
 
     ret

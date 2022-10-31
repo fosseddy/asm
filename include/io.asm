@@ -1,7 +1,7 @@
-section .text
-    global print
-    extern strlen
+global print
+extern strlen
 
+section .text
 ; void print(byte *s)
 print:
     call strlen
@@ -13,5 +13,4 @@ print:
     mov rsi, r11
     mov rdx, r10
     syscall
-
     ret

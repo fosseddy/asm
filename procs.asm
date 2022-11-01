@@ -42,7 +42,7 @@ _start:
     push ave2
     push sum2
     call stats2
-    add rbp, 2*8
+    add rsp, 2*8
 
 .exit:
     mov rax, 60

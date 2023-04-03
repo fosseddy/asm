@@ -35,7 +35,7 @@ _start:
 
     mov rdi, arr2
     mov esi, [len2]
-    mov rdx, min2,
+    mov rdx, min2
     mov rcx, med2_1
     mov r8, med2_2
     mov r9, max2

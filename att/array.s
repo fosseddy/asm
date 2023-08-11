@@ -15,19 +15,19 @@ _start:
 
     movq $0, %rsi
     movl len, %ecx
-.sum_loop:
+arr_loop:
     movl arr(, %rsi, 4), %eax
 
     addl %eax, sum
 
-    cmpl %eax, %r8d
-    cmovl %eax, %r8d
+    cmpl %r8d, %eax
+    cmovg %eax, %r8d
 
-    cmpl %eax, %r9d
-    cmovg %eax, %r9d
+    cmpl %r9d, %eax
+    cmovl %eax, %r9d
 
     incq %rsi
-    loop .sum_loop
+    loop arr_loop
 
     movl %r8d, max
     movl %r9d, min
@@ -37,6 +37,7 @@ _start:
     idivl len
     movl %eax, avrg
 
+exit:
     movq $60, %rax
     movq $0, %rdi
     syscall

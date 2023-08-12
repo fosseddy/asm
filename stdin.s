@@ -1,24 +1,29 @@
-.global _start
+    .global _start
 
-.equ SYS_read, 0
-.equ SYS_write, 1
-.equ STDIN, 0
-.equ STDOUT, 1
-.equ LF, 10
+    .equ SYS_read, 0
+    .equ SYS_write, 1
+    .equ SYS_exit, 60
+    .equ STDIN, 0
+    .equ STDOUT, 1
+    .equ LF, 10
 
-.data
-prompt: .ascii "Enter your name: "
+    .data
+prompt:
+    .ascii "Enter your name: "
 prompt_len = . - prompt
 
-msg: .ascii "Hello, "
+msg:
+    .ascii "Hello, "
 msg_len = . - msg
 
-end_msg: .ascii "!\n"
+end_msg:
+    .ascii "!\n"
 end_msg_len = . - end_msg
 
-buf: .skip 1024
+buf:
+    .skip 1024
 
-.text
+    .text
 _start:
     movq $prompt, %rdi
     movq $prompt_len, %rsi
@@ -51,7 +56,7 @@ read_input_done:
     movq $end_msg_len, %rsi
     call write
 
-    movq $60, %rax
+    movq $SYS_exit, %rax
     movq $0, %rdi
     syscall
 

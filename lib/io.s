@@ -1,15 +1,15 @@
-.global print, println
-.global STDIN, STDOUT, STDERR
+    .global print, println
+    .global STDIN, STDOUT, STDERR
 
-.extern strlen
+    .extern strlen
 
-.equ STDIN, 0
-.equ STDOUT, 1
-.equ STDERR, 2
+    .equ STDIN, 0
+    .equ STDOUT, 1
+    .equ STDERR, 2
 
-.equ SYS_write, 1
+    .equ SYS_write, 1
 
-.text
+    .text
 # rax written print(rdi fd, rsi *buf)
 print:
     movq %rdi, %r8

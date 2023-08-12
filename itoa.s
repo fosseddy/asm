@@ -1,12 +1,16 @@
-.global _start
-.extern println, STDOUT
-.extern itoa
+    .global _start
+    .extern println, STDOUT
+    .extern itoa
 
-.data
-num: .long 48
-buf: .skip 22 # should be enough for "sign, 64bit, NULL"
+    .equ SYS_exit, 60
 
-.text
+    .data
+num:
+    .long 48
+buf:
+    .skip 22 # should be enough for "sign, 64bit, NULL"
+
+    .text
 _start:
     movslq num, %rdi
     movq $buf, %rsi
@@ -16,6 +20,6 @@ _start:
     call println
 
 exit:
-    movq $60, %rax
+    movq $SYS_exit, %rax
     movq $0, %rdi
     syscall

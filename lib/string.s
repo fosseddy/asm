@@ -1,6 +1,6 @@
-.global strlen
+    .global strlen
 
-.text
+    .text
 # rax len strlen(rdi *s)
 strlen:
     movq $0, %rax

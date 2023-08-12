@@ -1,20 +1,23 @@
-.global _start
+    .global _start
 
-.equ SYS_read, 0
-.equ SYS_write, 1
-.equ SYS_open, 2
-.equ SYS_close, 3
-.equ SYS_exit, 60
-.equ O_RDONLY, 0
-.equ STDOUT, 0
+    .equ SYS_read, 0
+    .equ SYS_write, 1
+    .equ SYS_open, 2
+    .equ SYS_close, 3
+    .equ SYS_exit, 60
+    .equ O_RDONLY, 0
+    .equ STDOUT, 0
 
-.data
-fd: .quad 0
-ch: .byte 0
-argc_err_msg: .ascii "Provide file to print\n"
+    .data
+fd:
+    .quad 0
+ch:
+    .byte 0
+argc_err_msg:
+    .ascii "Provide file to print\n"
 argc_err_msg_len = . - argc_err_msg
 
-.text
+    .text
 _start:
     pop %rax
     decq %rax

@@ -1,14 +1,20 @@
-.global _start
+    .global _start
 
-.data
-avrg: .long 0
-sum: .long 0
-max: .long 0
-min: .long 0
-arr: .long 25, 69, 41, -1, 420, 8, 69
-len: .long 7
+    .data
+avrg:
+    .long 0
+sum:
+    .long 0
+max:
+    .long 0
+min:
+    .long 0
+arr:
+    .long 25, 69, 41, -1, 420, 8, 69
+len:
+    .long 7
 
-.text
+    .text
 _start:
     movl arr, %r8d
     movl arr, %r9d

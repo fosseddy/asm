@@ -1,6 +1,6 @@
-.global itoa
+    .global itoa
 
-.text
+    .text
 # void itoa(rdi num, rsi *buf)
 itoa:
     movq $0, %r8 # buf len

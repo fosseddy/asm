@@ -1,17 +1,24 @@
-.global _start
+    .global _start
 
-.data
-msg: .ascii "hello, world\n"
-.equ MSG_LEN, 13
+    .equ SYS_write, 1
+    .equ SYS_exit, 60
 
-.text
+    .equ STDOUT, 1
+
+    .equ MSG_LEN, 13
+
+    .data
+msg:
+    .ascii "hello, world\n"
+
+    .text
 _start:
-    movq $1, %rax
-    movq $1, %rdi
+    movq $STDOUT, %rdi
     movq $msg, %rsi
     movq $MSG_LEN, %rdx
+    movq $SYS_write, %rax
     syscall
 
-    movq $60, %rax
+    movq $SYS_exit, %rax
     movq $0, %rdi
     syscall
